@@ -96,10 +96,14 @@ export const SignUpForm = ({ onSwitch }: Props) => {
  const [password, setPassword] = useState("")
  const [message, setMessage] = useState("")
  const [showModal, setShowModal] = useState(false)
+ const [loading, setLoading] = useState(false);
+ const [error, setError] = useState("");
 
 
  const handleSubmit = async (e: React.FormEvent) => {
    e.preventDefault();
+   setLoading(true);
+  setError('');
 
       if (!email || !password) {
         setMessage("invalid input")
@@ -155,11 +159,12 @@ export const SignUpForm = ({ onSwitch }: Props) => {
                     placeholder="••••••••"
                   />
                 </div>
-                <button className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2.5 rounded-lg transition-colors" type="submit">
-                  Create Account
+                <button className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2.5 rounded-lg transition-colors" type="submit" disabled={loading}>
+                  {loading ? 'Creating Account...' : 'Create Account'}
                 </button>
 
                 {message && <p>{message}</p>}
+                {error && <p className="text-red-700">{error}</p>}
               </form>
           
 

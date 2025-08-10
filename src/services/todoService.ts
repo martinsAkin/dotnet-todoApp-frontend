@@ -7,7 +7,7 @@ export type Todo = {
  isCompleted: boolean;
 }
 export const getItems = (): Promise<Todo[]> => { 
-  return fetchApi("/todo")
+  return fetchApi("/todos")
 };
 
 export const getItem = (id: number): Promise<Todo> => { 
