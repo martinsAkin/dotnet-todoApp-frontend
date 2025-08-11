@@ -1,5 +1,5 @@
 // const BASE_URL = import.meta.env.BASE_URL || "https://localhost:5001/api";
-const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const BASE_URL = "https://dotnet-todoapp-backend.onrender.com/api";
 
 type RequestOptions = {
  method?: string;
